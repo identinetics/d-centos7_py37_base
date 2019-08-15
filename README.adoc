@@ -1,0 +1,13 @@
+= Docker Base Image for Centos 7 + Python 3
+
+The centos7_base image is extended with EPEL python3.4 and various utilities for administrative fact finding.
+
+This builds an image that can be used in other build environments with different deployment requirements.
+E.g. the development env relies on a direct internet connection for various repositories,
+whereas the production env is proxied on both http and package manager level.
+
+== Usage
+
+Reference this image in the downstream project's Dockerfile FROM clause.
+
+Create a Jenkins job that will update this image on a regular basis (e.g. daily).
