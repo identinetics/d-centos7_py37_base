@@ -8,13 +8,14 @@ RUN yum update -y \
 
 RUN mkdir -p /usr/local/src
 WORKDIR /usr/local/src
-RUN wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz \
- && tar -xzf Python-3.7.3.tgz \
- && rm Python-3.7.3.tgz
+RUN wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz \
+ && tar -xzf Python-3.7.4.tgz \
+ && rm Python-3.7.4.tgz
 
-WORKDIR /usr/local/src/Python-3.7.3
+WORKDIR /usr/local/src/Python-3.7.4
 RUN ./configure --enable-optimizations \
- && make altinstall
+ && make altinstall \
+ && ln -s /usr/local/bin/python3.7 /usr/bin/python3
 
 ARG TIMEZONE='Europe/Vienna'
 RUN ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
