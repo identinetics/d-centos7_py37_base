@@ -15,7 +15,7 @@ RUN wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz \
 WORKDIR /usr/local/src/Python-3.7.4
 RUN ./configure --enable-optimizations \
  && make altinstall \
- && ln -s /usr/local/bin/python3.7 /usr/bin/python3
+ && ln -sf /usr/local/bin/python3.7 /usr/bin/python3
 
 ARG TIMEZONE='Europe/Vienna'
 RUN ln -sf /usr/share/zoneinfo/$TIMEZONE /etc/localtime
